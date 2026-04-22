@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda Cultural · FUNCULTURAL Porto Velho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F3ECE0;
+    --cream-deep: #EAE0CE;
+    --ink: #1A1915;
+    --ink-soft: #3A372F;
+    --muted: #8A7F6E;
+    --terracotta: #B84A2F;
+    --terracotta-deep: #8E3620;
+    --forest: #2D4A2B;
+    --gold: #B8892D;
+    --line: #D4C9B4;
+    --today-bg: #F5E6C8;
+  }
+
+  html, body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  body {
+    background-image:
+      radial-gradient(ellipse at top right, rgba(184, 74, 47, 0.04), transparent 60%),
+      radial-gradient(ellipse at bottom left, rgba(45, 74, 43, 0.05), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 48px 80px;
+  }
+
+  /* ---------- HEADER ---------- */
+  header {
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 24px;
+  }
+
+  .brand h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    font-variation-settings: "opsz" 144, "SOFT" 40;
+  }
+
+  .brand h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--terracotta);
+  }
+
+  .brand .tagline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 10px;
+    font-weight: 500;
+  }
+
+  .today-stamp {
+    text-align: right;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+
+  .today-stamp .label {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .today-stamp .date {
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+
+  /* ---------- HERO / TODAY ---------- */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 36px;
+    margin-bottom: 48px;
+    min-height: 280px;
+  }
+
+  .today-card {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 36px 36px 32px;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .today-card::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 140px; height: 140px;
+    background: radial-gradient(circle, rgba(184, 137, 45, 0.25), transparent 70%);
+    pointer-events: none;
+  }
+
+  .today-card .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .today-card .big-day {
+    font-family: 'Fraunces', serif;
+    font-size: 5.5rem;
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .today-card .big-day .month {
+    font-style: italic;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--gold);
+    margin-left: 8px;
+    vertical-align: top;
+    letter-spacing: -0.02em;
+  }
+
+  .today-card .today-events {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid rgba(243, 236, 224, 0.2);
+  }
+
+  .today-card .today-events .count {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: rgba(243, 236, 224, 0.7);
+    margin-bottom: 10px;
+  }
+
+  .today-card .today-events ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .today-card .today-events li {
+    font-size: 0.95rem;
+    padding: 6px 0;
+    border-bottom: 1px dotted rgba(243, 236, 224, 0.15);
+  }
+  .today-card .today-events li:last-child { border-bottom: none; }
+
+  .today-card .today-events .empty {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    opacity: 0.6;
+    font-size: 1.05rem;
+  }
+
+  /* UPCOMING */
+  .upcoming-card {
+    background: var(--cream-deep);
+    border: 1px solid var(--line);
+    padding: 28px 30px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .upcoming-card h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+
+  .upcoming-card .sub {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+
+  .upcoming-list {
+    list-style: none;
+    overflow-y: auto;
+    flex: 1;
+    max-height: 240px;
+    padding-right: 6px;
+  }
+
+  .upcoming-list::-webkit-scrollbar { width: 6px; }
+  .upcoming-list::-webkit-scrollbar-track { background: transparent; }
+  .upcoming-list::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+
+  .upcoming-item {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .upcoming-item:last-child { border-bottom: none; }
+
+  .upcoming-item.imminent .day-num { color: var(--terracotta); }
+
+  .upcoming-item .day-col {
+    text-align: center;
+    padding-top: 2px;
+  }
+
+  .upcoming-item .day-num {
+    font-family: 'Fraunces', serif;
+    font-size: 1.9rem;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+  }
+
+  .upcoming-item .day-mon {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 2px;
+    font-weight: 600;
+  }
+
+  .upcoming-item .day-away {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.72rem;
+    color: var(--terracotta);
+    margin-top: 4px;
+  }
+
+  .upcoming-item .events {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .upcoming-item .event-name {
+    font-size: 0.94rem;
+    line-height: 1.3;
+    font-weight: 500;
+  }
+
+  .upcoming-item .event-cat {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  /* ---------- CONTROLS BAR ---------- */
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 28px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .month-nav {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+
+  .month-nav button {
+    background: transparent;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    font-family: 'Fraunces', serif;
+  }
+
+  .month-nav button:hover {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .month-nav h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    min-width: 260px;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .month-nav h2 .yr {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 1.4rem;
+    margin-left: 6px;
+  }
+
+  .controls-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .btn {
+    background: transparent;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    padding: 9px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.15s;
+  }
+
+  .btn:hover { background: var(--ink); color: var(--cream); }
+
+  .btn.primary {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+    color: var(--cream);
+  }
+  .btn.primary:hover { background: var(--terracotta-deep); border-color: var(--terracotta-deep); }
+
+  /* ---------- CATEGORY FILTERS ---------- */
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .filter-chip {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .filter-chip:hover { border-color: var(--ink); }
+
+  .filter-chip.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--cream);
+  }
+
+  /* ---------- MONTH LIST ---------- */
+  .month-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .day-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 24px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+
+  .day-row:last-child { border-bottom: none; }
+
+  .day-row.is-today {
+    background: var(--today-bg);
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-bottom-color: var(--gold);
+  }
+
+  .day-row.is-past { opacity: 0.45; }
+
+  .day-label {
+    text-align: right;
+    padding-right: 8px;
+    border-right: 1px solid var(--ink);
+    padding-top: 4px;
+  }
+
+  .day-row.is-today .day-label { border-right-color: var(--terracotta); }
+
+  .day-label .num {
+    font-family: 'Fraunces', serif;
+    font-size: 2.6rem;
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    display: block;
+  }
+
+  .day-label .dow {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 4px;
+    font-weight: 600;
+  }
+
+  .day-label .today-tag {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 2px 8px;
+    background: var(--terracotta);
+    color: var(--cream);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 2px;
+  }
+
+  .day-events {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 6px;
+  }
+
+  .event {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .event .name {
+    font-size: 1.02rem;
+    line-height: 1.35;
+    font-weight: 500;
+  }
+
+  .event .name.custom {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--terracotta-deep);
+  }
+
+  .event .tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .tag.cultura      { background: #F4D9C7; color: #8E3620; }
+  .tag.literatura   { background: #E8DCC4; color: #6B5317; }
+  .tag.artes        { background: #F2CDD4; color: #8B2240; }
+  .tag.musica       { background: #D6DFC4; color: #3A4F1D; }
+  .tag.cinema       { background: #D4CFE5; color: #3E3370; }
+  .tag.patrimonio   { background: #E4D4B8; color: #604821; }
+  .tag.internacional{ background: #C7DDE0; color: #254D52; }
+  .tag.civico       { background: #E6D1B9; color: #5E3A17; }
+  .tag.regional     { background: #DCE8D2; color: #2D4A2B; color: var(--forest); }
+  .tag.social       { background: #F0D4C7; color: #7B3518; }
+  .tag.educacao     { background: #CFDEEA; color: #2A4462; }
+  .tag.meioambiente { background: #CFE0CB; color: #2D4A2B; }
+  .tag.religioso    { background: #EAE0CE; color: #625437; }
+  .tag.saude        { background: #E4CFD7; color: #6F2743; }
+  .tag.custom       { background: var(--terracotta); color: var(--cream); }
+
+  .event .note {
+    width: 100%;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: -4px;
+  }
+
+  .event .delete-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 2px 6px;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .event:hover .delete-btn { opacity: 1; }
+  .event .delete-btn:hover { color: var(--terracotta); }
+
+  .empty-month {
+    padding: 60px 20px;
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 1.2rem;
+  }
+
+  /* ---------- MODAL ---------- */
+  .modal-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 25, 21, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+  }
+  .modal-bg.active { display: flex; }
+
+  .modal {
+    background: var(--cream);
+    padding: 36px;
+    max-width: 480px;
+    width: 100%;
+    border-radius: 2px;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .modal h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+
+  .modal .sub {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+
+  .field {
+    margin-bottom: 16px;
+  }
+
+  .field label {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  .field input, .field select, .field textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    background: var(--cream-deep);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    border-radius: 2px;
+  }
+
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--ink);
+  }
+
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  footer em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 860px) {
+    .container { padding: 28px 22px 60px; }
+    header { grid-template-columns: 1fr; }
+    .today-stamp { text-align: left; }
+    .hero { grid-template-columns: 1fr; }
+    .today-card .big-day { font-size: 4.2rem; }
+    .month-nav h2 { font-size: 1.5rem; min-width: 0; }
+    .day-row { grid-template-columns: 72px 1fr; gap: 16px; }
+    .day-label .num { font-size: 2rem; }
+    .controls { flex-direction: column; align-items: stretch; }
+    .controls-right { justify-content: flex-start; flex-wrap: wrap; }
+  }
+
+  /* ---------- PRINT ---------- */
+  @media print {
+    body { background: white; }
+    .controls, .filters, .hero, footer, .btn, .delete-btn, .modal-bg { display: none !important; }
+    .day-row.is-past { opacity: 1; }
+    .day-row { page-break-inside: avoid; }
+    header { border-bottom: 2px solid black; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <div class="brand">
+      <h1>Agenda <em>Cultural</em></h1>
+      <div class="tagline">FUNCULTURAL · Porto Velho · Rondônia</div>
+    </div>
+    <div class="today-stamp">
+      <span class="label">Hoje</span>
+      <span class="date" id="today-full-date">—</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="today-card">
+      <div class="eyebrow">Data de hoje</div>
+      <div class="big-day" id="today-big">
+        <span id="today-day">—</span><span class="month" id="today-month">—</span>
+      </div>
+      <div class="today-events">
+        <div class="count" id="today-count">—</div>
+        <ul id="today-list"></ul>
+      </div>
+    </div>
+
+    <div class="upcoming-card">
+      <h2>Próximos 15 dias</h2>
+      <div class="sub">Programe-se com antecedência</div>
+      <ul class="upcoming-list" id="upcoming-list"></ul>
+    </div>
+  </section>
+
+  <div class="controls">
+    <div class="month-nav">
+      <button id="prev-month" aria-label="Mês anterior">‹</button>
+      <h2 id="current-month-label">—</h2>
+      <button id="next-month" aria-label="Próximo mês">›</button>
+    </div>
+    <div class="controls-right">
+      <button class="btn" id="today-btn">Hoje</button>
+      <button class="btn" id="copy-btn">Copiar mês</button>
+      <button class="btn" id="print-btn">Imprimir</button>
+      <button class="btn primary" id="add-btn">+ Nova data</button>
+    </div>
+  </div>
+
+  <div class="filters" id="filters"></div>
+
+  <div class="month-list" id="month-list"></div>
+
+  <footer>
+    <div>Base de dados: feriados nacionais, datas culturais, UNESCO, <em>regionais</em></div>
+    <div>Salvamento local · seus dados não saem deste navegador</div>
+  </footer>
+
+</div>
+
+<!-- MODAL: Add custom date -->
+<div class="modal-bg" id="modal-bg">
+  <div class="modal">
+    <h3>Nova data</h3>
+    <div class="sub">Adicione um compromisso ou lembrete</div>
+    <div class="field-row">
+      <div class="field">
+        <label>Mês</label>
+        <select id="in-month">
+          <option value="1">Janeiro</option><option value="2">Fevereiro</option>
+          <option value="3">Março</option><option value="4">Abril</option>
+          <option value="5">Maio</option><option value="6">Junho</option>
+          <option value="7">Julho</option><option value="8">Agosto</option>
+          <option value="9">Setembro</option><option value="10">Outubro</option>
+          <option value="11">Novembro</option><option value="12">Dezembro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Dia</label>
+        <input type="number" id="in-day" min="1" max="31" placeholder="1–31">
+      </div>
+    </div>
+    <div class="field">
+      <label>Nome da data</label>
+      <input type="text" id="in-name" placeholder="Ex: Festival de Inverno de Porto Velho">
+    </div>
+    <div class="field">
+      <label>Categoria</label>
+      <select id="in-category">
+        <option value="custom">Pauta FUNCULTURAL</option>
+        <option value="cultura">Cultura</option>
+        <option value="literatura">Literatura</option>
+        <option value="artes">Artes visuais</option>
+        <option value="musica">Música</option>
+        <option value="cinema">Cinema</option>
+        <option value="patrimonio">Patrimônio</option>
+        <option value="regional">Regional</option>
+        <option value="social">Social</option>
+        <option value="civico">Cívico</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Observação (opcional)</label>
+      <textarea id="in-note" rows="2" placeholder="Notas para a equipe, links de referência..."></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" id="cancel-btn">Cancelar</button>
+      <button class="btn primary" id="save-btn">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ==============================================================
+   BASE DE DADOS — datas comemorativas (fixas)
+   Chave: "M-D" (mês 1-12, dia 1-31)
+   ============================================================== */
+const DATES = {
+  // JANEIRO
+  "1-1":   [{n:"Confraternização Universal", c:"civico"},
+            {n:"Dia Mundial da Paz", c:"internacional"}],
+  "1-4":   [{n:"Criação do Território Federal do Guaporé (1943)", c:"regional", note:"Origem histórica do atual estado de Rondônia"}],
+  "1-6":   [{n:"Dia de Reis", c:"religioso"}],
+  "1-9":   [{n:"Dia do Fico (1822)", c:"civico"}],
+  "1-20":  [{n:"Dia de São Sebastião", c:"religioso"}],
+  "1-25":  [{n:"Aniversário da Cidade de São Paulo", c:"civico"}],
+  "1-27":  [{n:"Dia Internacional em Memória das Vítimas do Holocausto", c:"internacional"}],
+  "1-30":  [{n:"Dia da Saudade", c:"cultura"},
+            {n:"Dia Nacional das Histórias em Quadrinhos", c:"cultura"}],
+
+  // FEVEREIRO
+  "2-2":   [{n:"Dia de Iemanjá", c:"cultura"},
+            {n:"Dia de Nossa Senhora dos Navegantes", c:"religioso"}],
+  "2-9":   [{n:"Dia Nacional do Zootecnista", c:"civico"}],
+  "2-11":  [{n:"Dia Internacional das Mulheres e Meninas na Ciência", c:"internacional"}],
+  "2-13":  [{n:"Dia Mundial do Rádio (UNESCO)", c:"internacional"}],
+  "2-21":  [{n:"Dia Internacional da Língua Materna (UNESCO)", c:"internacional"}],
+  "2-23":  [{n:"Dia do Rotariano", c:"civico"}],
+
+  // MARÇO
+  "3-1":   [{n:"Dia Mundial da Discriminação Zero", c:"social"}],
+  "3-8":   [{n:"Dia Internacional da Mulher", c:"social"}],
+  "3-14":  [{n:"Dia Nacional da Poesia", c:"literatura", note:"Aniversário de Castro Alves"}],
+  "3-15":  [{n:"Dia Mundial do Consumidor", c:"social"}],
+  "3-19":  [{n:"Dia de São José", c:"religioso"}],
+  "3-21":  [{n:"Dia Internacional da Poesia (UNESCO)", c:"literatura"},
+            {n:"Dia Internacional pela Eliminação da Discriminação Racial", c:"social"},
+            {n:"Dia Internacional das Florestas", c:"meioambiente"}],
+  "3-22":  [{n:"Dia Mundial da Água", c:"meioambiente"}],
+  "3-24":  [{n:"Dia Internacional pelo Direito à Verdade", c:"social"}],
+  "3-25":  [{n:"Dia da Constituição", c:"civico"}],
+  "3-27":  [{n:"Dia Mundial do Teatro", c:"cultura"},
+            {n:"Dia Nacional do Circo", c:"cultura", note:"Nascimento de Abelardo Pinto, o Piolim"}],
+  "3-30":  [{n:"Dia Nacional da Economia", c:"civico"}],
+
+  // ABRIL
+  "4-1":   [{n:"Dia da Mentira", c:"cultura"}],
+  "4-2":   [{n:"Dia Internacional do Livro Infantil", c:"literatura"},
+            {n:"Dia Mundial de Conscientização do Autismo", c:"saude"}],
+  "4-7":   [{n:"Dia Mundial da Saúde", c:"saude"},
+            {n:"Dia do Jornalista", c:"civico"}],
+  "4-8":   [{n:"Dia Internacional do Povo Cigano", c:"social"}],
+  "4-14":  [{n:"Dia Nacional da Cachaça", c:"cultura"}],
+  "4-15":  [{n:"Dia Mundial da Arte (UNESCO)", c:"artes", note:"Aniversário de Leonardo da Vinci"}],
+  "4-18":  [{n:"Dia Nacional do Livro Infantil", c:"literatura", note:"Aniversário de Monteiro Lobato"}],
+  "4-19":  [{n:"Dia dos Povos Indígenas", c:"social"}],
+  "4-21":  [{n:"Tiradentes", c:"civico"},
+            {n:"Aniversário de Brasília", c:"civico"}],
+  "4-22":  [{n:"Descobrimento do Brasil", c:"civico"},
+            {n:"Dia do Planeta Terra", c:"meioambiente"}],
+  "4-23":  [{n:"Dia Mundial do Livro e do Direito Autoral (UNESCO)", c:"literatura"},
+            {n:"Dia de São Jorge", c:"religioso"}],
+  "4-26":  [{n:"Dia Nacional de Prevenção e Combate à Hipertensão", c:"saude"}],
+  "4-28":  [{n:"Dia da Educação", c:"educacao"}],
+  "4-29":  [{n:"Dia Internacional da Dança", c:"cultura"}],
+  "4-30":  [{n:"Dia Nacional da Mulher", c:"social"}],
+
+  // MAIO
+  "5-1":   [{n:"Dia do Trabalhador", c:"civico"}],
+  "5-3":   [{n:"Dia Mundial da Liberdade de Imprensa (UNESCO)", c:"internacional"}],
+  "5-8":   [{n:"Dia do Artista Plástico", c:"artes"}],
+  "5-13":  [{n:"Dia da Abolição da Escravidão (Lei Áurea, 1888)", c:"civico"}],
+  "5-17":  [{n:"Dia Internacional contra a Homofobia, Transfobia e Bifobia", c:"social"}],
+  "5-18":  [{n:"Dia Internacional dos Museus", c:"patrimonio"},
+            {n:"Dia Nacional de Combate ao Abuso e à Exploração Sexual de Crianças e Adolescentes", c:"social"}],
+  "5-21":  [{n:"Dia Mundial da Diversidade Cultural para o Diálogo e o Desenvolvimento (UNESCO)", c:"cultura"}],
+  "5-22":  [{n:"Dia Internacional da Biodiversidade", c:"meioambiente"}],
+  "5-25":  [{n:"Dia da África", c:"internacional"},
+            {n:"Dia do Trabalhador Rural", c:"civico"}],
+  "5-28":  [{n:"Dia Internacional da Luta pela Saúde da Mulher", c:"saude"}],
+
+  // JUNHO
+  "6-5":   [{n:"Dia Mundial do Meio Ambiente", c:"meioambiente"},
+            {n:"Dia da Ecologia", c:"meioambiente"}],
+  "6-8":   [{n:"Dia Mundial dos Oceanos", c:"meioambiente"}],
+  "6-12":  [{n:"Dia dos Namorados", c:"cultura"},
+            {n:"Dia Mundial contra o Trabalho Infantil", c:"social"}],
+  "6-13":  [{n:"Dia de Santo Antônio", c:"religioso"}],
+  "6-17":  [{n:"Dia Mundial de Combate à Desertificação e à Seca", c:"meioambiente"}],
+  "6-18":  [{n:"Dia do Orgulho Autista", c:"social"}],
+  "6-20":  [{n:"Dia Mundial do Refugiado", c:"social"}],
+  "6-21":  [{n:"Dia Internacional da Música", c:"musica"},
+            {n:"Início do Inverno (Hemisfério Sul)", c:"cultura"}],
+  "6-24":  [{n:"Dia de São João", c:"religioso"},
+            {n:"Dia do Caboclo", c:"cultura"}],
+  "6-26":  [{n:"Dia Internacional de Combate às Drogas", c:"social"}],
+  "6-28":  [{n:"Dia do Orgulho LGBTQIA+", c:"social"}],
+  "6-29":  [{n:"Dia de São Pedro e São Paulo", c:"religioso"}],
+
+  // JULHO
+  "7-2":   [{n:"Independência da Bahia", c:"civico"}],
+  "7-8":   [{n:"Dia do Panificador", c:"civico"}],
+  "7-11":  [{n:"Dia Mundial da População", c:"social"}],
+  "7-13":  [{n:"Dia do Estatuto da Criança e do Adolescente (ECA)", c:"social"}],
+  "7-20":  [{n:"Dia do Amigo", c:"cultura"},
+            {n:"Dia Internacional da Amizade", c:"internacional"}],
+  "7-25":  [{n:"Dia da Mulher Negra Latino-Americana e Caribenha", c:"social"},
+            {n:"Dia do Escritor", c:"literatura"},
+            {n:"Dia do Colono", c:"civico"}],
+  "7-26":  [{n:"Dia dos Avós", c:"cultura"}],
+  "7-28":  [{n:"Dia do Agricultor", c:"civico"}],
+
+  // AGOSTO
+  "8-11":  [{n:"Dia do Estudante", c:"educacao"}],
+  "8-12":  [{n:"Dia Internacional da Juventude", c:"social"}],
+  "8-13":  [{n:"Dia Internacional do Canhoto", c:"cultura"}],
+  "8-17":  [{n:"Dia do Patrimônio Histórico", c:"patrimonio"}],
+  "8-19":  [{n:"Dia Mundial da Fotografia", c:"artes"},
+            {n:"Dia Mundial da Ação Humanitária", c:"social"}],
+  "8-22":  [{n:"Dia Mundial do Folclore", c:"cultura"}],
+  "8-23":  [{n:"Dia Internacional da Memória do Tráfico Negreiro e sua Abolição (UNESCO)", c:"social"}],
+  "8-25":  [{n:"Dia do Soldado", c:"civico"}],
+  "8-27":  [{n:"Dia do Psicólogo", c:"saude"}],
+  "8-29":  [{n:"Dia Nacional de Combate ao Fumo", c:"saude"}],
+  "8-31":  [{n:"Dia do Nordestino", c:"cultura"}],
+
+  // SETEMBRO
+  "9-5":   [{n:"Dia Internacional da Mulher Indígena", c:"social"},
+            {n:"Dia da Amazônia", c:"regional", note:"Especialmente relevante para a comunicação do FUNCULTURAL"}],
+  "9-7":   [{n:"Independência do Brasil", c:"civico"}],
+  "9-8":   [{n:"Dia Internacional da Alfabetização (UNESCO)", c:"educacao"}],
+  "9-15":  [{n:"Dia Internacional da Democracia", c:"civico"}],
+  "9-19":  [{n:"Dia do Teatro Brasileiro", c:"cultura"}],
+  "9-21":  [{n:"Dia Internacional da Paz", c:"internacional"},
+            {n:"Dia da Árvore", c:"meioambiente"},
+            {n:"Dia Nacional de Luta da Pessoa com Deficiência", c:"social"}],
+  "9-22":  [{n:"Dia Mundial Sem Carro", c:"meioambiente"}],
+  "9-23":  [{n:"Dia Internacional das Línguas de Sinais", c:"social"},
+            {n:"Equinócio de Primavera (Hemisfério Sul)", c:"cultura"}],
+  "9-27":  [{n:"Dia Mundial do Turismo", c:"cultura"}],
+  "9-29":  [{n:"Dia Nacional do Ancião", c:"social"}],
+  "9-30":  [{n:"Dia Internacional do Tradutor", c:"literatura"}],
+
+  // OUTUBRO
+  "10-1":  [{n:"Dia Internacional da Pessoa Idosa", c:"social"},
+            {n:"Dia Internacional da Música", c:"musica"}],
+  "10-2":  [{n:"Aniversário de Porto Velho (1914)", c:"regional", note:"Data central para a agenda do FUNCULTURAL"}],
+  "10-5":  [{n:"Dia Mundial do Professor (UNESCO)", c:"educacao"},
+            {n:"Dia da Constituição Brasileira (1988)", c:"civico"}],
+  "10-10": [{n:"Dia Mundial da Saúde Mental", c:"saude"}],
+  "10-12": [{n:"Nossa Senhora Aparecida", c:"religioso"},
+            {n:"Dia das Crianças", c:"cultura"}],
+  "10-15": [{n:"Dia do Professor", c:"educacao"}],
+  "10-16": [{n:"Dia Mundial da Alimentação", c:"social"}],
+  "10-17": [{n:"Dia Internacional para a Erradicação da Pobreza", c:"social"}],
+  "10-19": [{n:"Dia Internacional de Combate ao Câncer de Mama (Outubro Rosa)", c:"saude"}],
+  "10-25": [{n:"Dia do Dentista", c:"saude"}],
+  "10-28": [{n:"Dia do Servidor Público", c:"civico"}],
+  "10-29": [{n:"Dia Nacional do Livro", c:"literatura", note:"Fundação da Biblioteca Nacional (1810)"}],
+  "10-31": [{n:"Dia Mundial da Poupança", c:"civico"}],
+
+  // NOVEMBRO
+  "11-2":  [{n:"Finados", c:"religioso"}],
+  "11-5":  [{n:"Dia da Cultura", c:"cultura", note:"Nascimento de Rui Barbosa"},
+            {n:"Dia Nacional da Ciência", c:"educacao"},
+            {n:"Dia do Cinema Brasileiro", c:"cinema"}],
+  "11-8":  [{n:"Dia Mundial do Urbanismo", c:"patrimonio"},
+            {n:"Dia do Radialista", c:"civico"}],
+  "11-14": [{n:"Dia Nacional da Alfabetização", c:"educacao"}],
+  "11-15": [{n:"Proclamação da República", c:"civico"}],
+  "11-16": [{n:"Dia Internacional para a Tolerância (UNESCO)", c:"internacional"}],
+  "11-19": [{n:"Dia da Bandeira", c:"civico"}],
+  "11-20": [{n:"Dia da Consciência Negra · Zumbi dos Palmares", c:"social"}],
+  "11-21": [{n:"Dia Mundial da Televisão", c:"cultura"}],
+  "11-25": [{n:"Dia Internacional pela Eliminação da Violência contra a Mulher", c:"social"}],
+  "11-27": [{n:"Dia Nacional de Combate ao Câncer", c:"saude"}],
+
+  // DEZEMBRO
+  "12-1":  [{n:"Dia Mundial de Luta contra a AIDS", c:"saude"}],
+  "12-2":  [{n:"Dia Nacional do Samba", c:"musica"}],
+  "12-3":  [{n:"Dia Internacional das Pessoas com Deficiência", c:"social"}],
+  "12-5":  [{n:"Dia Internacional do Voluntariado", c:"social"}],
+  "12-8":  [{n:"Dia da Família", c:"cultura"},
+            {n:"Nossa Senhora da Conceição", c:"religioso"}],
+  "12-10": [{n:"Dia Internacional dos Direitos Humanos", c:"social"}],
+  "12-18": [{n:"Dia Internacional do Migrante", c:"social"}],
+  "12-20": [{n:"Dia Internacional da Solidariedade Humana", c:"social"}],
+  "12-22": [{n:"Dia de Rondônia · Criação do Estado (1981)", c:"regional", note:"Aniversário do estado. Data central."}],
+  "12-25": [{n:"Natal", c:"religioso"}],
+  "12-31": [{n:"Véspera de Ano Novo", c:"cultura"}],
+};
+
+/* ==============================================================
+   CONFIG E UTILITÁRIOS
+   ============================================================== */
+const MONTH_NAMES = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho",
+                     "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+const MONTH_SHORT = ["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
+const DOW_NAMES = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
+const DOW_SHORT = ["DOM","SEG","TER","QUA","QUI","SEX","SÁB"];
+const CAT_LABEL = {
+  cultura:"Cultura", literatura:"Literatura", artes:"Artes", musica:"Música",
+  cinema:"Cinema", patrimonio:"Patrimônio", internacional:"Internacional",
+  civico:"Cívico", regional:"Regional", social:"Social", educacao:"Educação",
+  meioambiente:"Meio ambiente", religioso:"Religioso", saude:"Saúde",
+  custom:"Pauta FUNCULTURAL"
+};
+
+const STORAGE_KEY = "funcultural_agenda_v1";
+const FILTER_KEY  = "funcultural_filter_v1";
+
+let viewDate = new Date();
+let activeFilter = localStorage.getItem(FILTER_KEY) || "all";
+
+/* ----- Custom events persistence ----- */
+function loadCustom() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+  } catch { return {}; }
+}
+function saveCustom(data) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+let customEvents = loadCustom();
+
+/* Retorna todos os eventos (fixos + custom) de uma chave M-D */
+function eventsFor(m, d) {
+  const key = `${m}-${d}`;
+  const fixed = DATES[key] || [];
+  const custom = (customEvents[key] || []).map(ev => ({...ev, isCustom: true}));
+  return [...fixed, ...custom];
+}
+
+/* ==============================================================
+   RENDERIZAÇÃO
+   ============================================================== */
+function sameDay(a, b) {
+  return a.getFullYear() === b.getFullYear()
+    && a.getMonth() === b.getMonth()
+    && a.getDate() === b.getDate();
+}
+
+function renderTodayHero() {
+  const today = new Date();
+  const m = today.getMonth() + 1;
+  const d = today.getDate();
+
+  document.getElementById("today-full-date").textContent =
+    `${DOW_NAMES[today.getDay()]}, ${d} de ${MONTH_NAMES[m-1]} de ${today.getFullYear()}`;
+
+  document.getElementById("today-day").textContent = String(d).padStart(2, "0");
+  document.getElementById("today-month").textContent = MONTH_SHORT[m-1];
+
+  const evts = eventsFor(m, d);
+  const countEl = document.getElementById("today-count");
+  const listEl = document.getElementById("today-list");
+  listEl.innerHTML = "";
+
+  if (evts.length === 0) {
+    countEl.textContent = "Nenhuma data comemorativa registrada";
+    const li = document.createElement("li");
+    li.className = "empty";
+    li.textContent = "Um dia tranquilo. Bom para planejar.";
+    listEl.appendChild(li);
+  } else {
+    countEl.textContent = evts.length === 1
+      ? "1 data hoje"
+      : `${evts.length} datas hoje`;
+    evts.forEach(ev => {
+      const li = document.createElement("li");
+      li.textContent = ev.n;
+      listEl.appendChild(li);
+    });
+  }
+}
+
+function renderUpcoming() {
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  const list = document.getElementById("upcoming-list");
+  list.innerHTML = "";
+
+  const upcoming = [];
+  for (let i = 1; i <= 15; i++) {
+    const date = new Date(today);
+    date.setDate(date.getDate() + i);
+    const m = date.getMonth() + 1;
+    const d = date.getDate();
+    const evts = eventsFor(m, d);
+    if (activeFilter !== "all") {
+      evts.forEach(ev => { if (ev.c === activeFilter) upcoming.push({date, ev, daysAway: i}); });
+    } else {
+      evts.forEach(ev => upcoming.push({date, ev, daysAway: i}));
+    }
+  }
+
+  if (upcoming.length === 0) {
+    const li = document.createElement("li");
+    li.className = "upcoming-item";
+    li.innerHTML = `<div></div><div class="events"><div class="event-name" style="font-style:italic;color:var(--muted)">Nenhuma data nos próximos 15 dias${activeFilter !== 'all' ? ' neste filtro' : ''}.</div></div>`;
+    list.appendChild(li);
+    return;
+  }
+
+  upcoming.forEach(({date, ev, daysAway}) => {
+    const li = document.createElement("li");
+    li.className = "upcoming-item" + (daysAway <= 3 ? " imminent" : "");
+    const m = date.getMonth() + 1;
+    const d = date.getDate();
+    li.innerHTML = `
+      <div class="day-col">
+        <div class="day-num">${d}</div>
+        <div class="day-mon">${MONTH_SHORT[m-1]}</div>
+        <div class="day-away">em ${daysAway}${daysAway === 1 ? ' dia' : ' dias'}</div>
+      </div>
+      <div class="events">
+        <div class="event-name">${ev.n}</div>
+        <div class="event-cat">${CAT_LABEL[ev.c] || ev.c}</div>
+      </div>
+    `;
+    list.appendChild(li);
+  });
+}
+
+function renderFilters() {
+  const cats = ["all", "cultura","literatura","artes","musica","cinema","patrimonio",
+                "regional","social","civico","educacao","internacional",
+                "meioambiente","religioso","saude","custom"];
+  const container = document.getElementById("filters");
+  container.innerHTML = "";
+  cats.forEach(cat => {
+    const btn = document.createElement("button");
+    btn.className = "filter-chip" + (activeFilter === cat ? " active" : "");
+    btn.textContent = cat === "all" ? "Todas" : CAT_LABEL[cat];
+    btn.onclick = () => {
+      activeFilter = cat;
+      localStorage.setItem(FILTER_KEY, cat);
+      renderAll();
+    };
+    container.appendChild(btn);
+  });
+}
+
+function renderMonthList() {
+  const m = viewDate.getMonth() + 1;
+  const year = viewDate.getFullYear();
+  const today = new Date(); today.setHours(0,0,0,0);
+
+  document.getElementById("current-month-label").innerHTML =
+    `${MONTH_NAMES[m-1]} <span class="yr">${year}</span>`;
+
+  const list = document.getElementById("month-list");
+  list.innerHTML = "";
+
+  const lastDay = new Date(year, m, 0).getDate();
+  let anyShown = false;
+
+  for (let d = 1; d <= lastDay; d++) {
+    let evts = eventsFor(m, d);
+    if (activeFilter !== "all") evts = evts.filter(ev => ev.c === activeFilter);
+    if (evts.length === 0) continue;
+    anyShown = true;
+
+    const dayDate = new Date(year, m-1, d);
+    const isToday = sameDay(dayDate, today);
+    const isPast = dayDate < today && !isToday;
+
+    const row = document.createElement("div");
+    row.className = "day-row" + (isToday ? " is-today" : "") + (isPast ? " is-past" : "");
+
+    const dayLabel = document.createElement("div");
+    dayLabel.className = "day-label";
+    dayLabel.innerHTML = `
+      <span class="num">${String(d).padStart(2,"0")}</span>
+      <span class="dow">${DOW_SHORT[dayDate.getDay()]}</span>
+      ${isToday ? '<span class="today-tag">Hoje</span>' : ''}
+    `;
+
+    const eventsEl = document.createElement("div");
+    eventsEl.className = "day-events";
+
+    evts.forEach((ev, idx) => {
+      const evDiv = document.createElement("div");
+      evDiv.className = "event";
+      const catClass = ev.c || "cultura";
+      const deleteBtn = ev.isCustom
+        ? `<button class="delete-btn" data-day="${d}" data-idx="${idx}" title="Remover">✕</button>`
+        : "";
+      evDiv.innerHTML = `
+        <span class="name ${ev.isCustom ? 'custom' : ''}">${ev.n}</span>
+        <span class="tag ${catClass}">${CAT_LABEL[ev.c] || ev.c}</span>
+        ${deleteBtn}
+        ${ev.note ? `<span class="note">${ev.note}</span>` : ""}
+      `;
+      eventsEl.appendChild(evDiv);
+    });
+
+    row.appendChild(dayLabel);
+    row.appendChild(eventsEl);
+    list.appendChild(row);
+  }
+
+  if (!anyShown) {
+    list.innerHTML = `<div class="empty-month">Nenhuma data neste filtro para ${MONTH_NAMES[m-1]}.</div>`;
+  }
+
+  // attach delete handlers
+  list.querySelectorAll(".delete-btn").forEach(btn => {
+    btn.onclick = () => {
+      const day = btn.dataset.day;
+      const idx = parseInt(btn.dataset.idx, 10);
+      const fixedCount = (DATES[`${m}-${day}`] || []).length;
+      const customIdx = idx - fixedCount;
+      const key = `${m}-${day}`;
+      if (customEvents[key] && customEvents[key][customIdx]) {
+        if (confirm("Remover esta data?")) {
+          customEvents[key].splice(customIdx, 1);
+          if (customEvents[key].length === 0) delete customEvents[key];
+          saveCustom(customEvents);
+          renderAll();
+        }
+      }
+    };
+  });
+}
+
+function renderAll() {
+  renderTodayHero();
+  renderUpcoming();
+  renderFilters();
+  renderMonthList();
+}
+
+/* ==============================================================
+   CONTROLES
+   ============================================================== */
+document.getElementById("prev-month").onclick = () => {
+  viewDate.setMonth(viewDate.getMonth() - 1);
+  renderMonthList();
+};
+document.getElementById("next-month").onclick = () => {
+  viewDate.setMonth(viewDate.getMonth() + 1);
+  renderMonthList();
+};
+document.getElementById("today-btn").onclick = () => {
+  viewDate = new Date();
+  renderMonthList();
+};
+document.getElementById("print-btn").onclick = () => window.print();
+
+document.getElementById("copy-btn").onclick = () => {
+  const m = viewDate.getMonth() + 1;
+  const year = viewDate.getFullYear();
+  const lastDay = new Date(year, m, 0).getDate();
+  const lines = [`DATAS COMEMORATIVAS — ${MONTH_NAMES[m-1].toUpperCase()} ${year}`, ""];
+  for (let d = 1; d <= lastDay; d++) {
+    let evts = eventsFor(m, d);
+    if (activeFilter !== "all") evts = evts.filter(ev => ev.c === activeFilter);
+    if (evts.length === 0) continue;
+    evts.forEach(ev => {
+      lines.push(`${String(d).padStart(2,"0")}/${String(m).padStart(2,"0")} · ${ev.n}${ev.note ? ' ('+ev.note+')' : ''}`);
+    });
+  }
+  const text = lines.join("\n");
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById("copy-btn");
+    const original = btn.textContent;
+    btn.textContent = "Copiado ✓";
+    setTimeout(() => { btn.textContent = original; }, 1500);
+  });
+};
+
+/* ----- Modal ----- */
+const modalBg = document.getElementById("modal-bg");
+document.getElementById("add-btn").onclick = () => {
+  document.getElementById("in-month").value = viewDate.getMonth() + 1;
+  document.getElementById("in-day").value = "";
+  document.getElementById("in-name").value = "";
+  document.getElementById("in-category").value = "custom";
+  document.getElementById("in-note").value = "";
+  modalBg.classList.add("active");
+};
+document.getElementById("cancel-btn").onclick = () => modalBg.classList.remove("active");
+modalBg.onclick = (e) => { if (e.target === modalBg) modalBg.classList.remove("active"); };
+
+document.getElementById("save-btn").onclick = () => {
+  const m = parseInt(document.getElementById("in-month").value, 10);
+  const d = parseInt(document.getElementById("in-day").value, 10);
+  const name = document.getElementById("in-name").value.trim();
+  const cat = document.getElementById("in-category").value;
+  const note = document.getElementById("in-note").value.trim();
+
+  if (!m || !d || d < 1 || d > 31 || !name) {
+    alert("Preencha mês, dia e nome da data.");
+    return;
+  }
+
+  const key = `${m}-${d}`;
+  if (!customEvents[key]) customEvents[key] = [];
+  customEvents[key].push({ n: name, c: cat, note: note || undefined });
+  saveCustom(customEvents);
+
+  // navigate view to the added month
+  viewDate = new Date(viewDate.getFullYear(), m - 1, 1);
+  modalBg.classList.remove("active");
+  renderAll();
+};
+
+/* ==============================================================
+   BOOT
+   ============================================================== */
+renderAll();
+</script>
+</body>
+</html>
